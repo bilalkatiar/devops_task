@@ -20,4 +20,4 @@ jobs:
         pip install -r devops/requirements.txt
     - name: Analysing the code with pylint
       run: |
-        pylint * --ignore=db.sqlite3
+        pylint * --ignore=db.sqlite3,docker-compose-deploy.yml,docker-compose.yml,proxy/*,scripts/*,Dockerfile
