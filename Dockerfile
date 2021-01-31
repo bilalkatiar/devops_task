@@ -4,6 +4,7 @@ ENV PATH="/scripts:${PATH}"
 
 COPY ./devops/requirements.txt /requirements.txt
 RUN apk add --update --no-cache --virtual .tmp gcc libc-dev linux-headers
+RUN pip install --upgrade pip
 RUN pip install -r /requirements.txt
 RUN apk del .tmp
 
