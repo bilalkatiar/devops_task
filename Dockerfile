@@ -8,9 +8,9 @@ RUN pip install --upgrade pip
 RUN pip install -r /requirements.txt
 RUN apk del .tmp
 
-RUN mkdir /app
-COPY ./devops /app
-WORKDIR /app
+RUN mkdir /devops
+COPY ./devops /devops
+WORKDIR /devops
 COPY ./scripts /scripts
 
 RUN chmod +x /scripts/*

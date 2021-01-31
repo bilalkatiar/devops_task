@@ -5,6 +5,7 @@ services:
     build:
       context: .
     volumes:
+      - ./app:/app
       - static_data:/vol/web
     environment:
       - SECRET_KEY=samplesecret123
