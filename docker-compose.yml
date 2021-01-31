@@ -1,13 +1,13 @@
 version: '3.7'
 
 services:
-  app:
+  devops:
     build:
       context: .
     ports:
       - "8000:8000"
     volumes:
-      - ./app:/app
+      - ./devops:/devops
     command: sh -c "python manage.py runserver 0.0.0.0:8000"
     environment:
       - DEBUG=1
