@@ -21,12 +21,4 @@ RUN adduser -D user
 RUN chown -R user:user /vol
 RUN chmod -R 755 /vol/web
 USER user
-
-RUN set -e
-
-RUN python manage.py collectstatic --noinput
-
-RUN uwsgi --socket :8000 --master --enable-threads --module app.wsgi
-
-
-#CMD ["entrypoint.sh"]
+CMD ["entrypoint.sh"]
