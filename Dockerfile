@@ -8,9 +8,9 @@ RUN pip install --upgrade pip
 RUN pip install -r /requirements.txt
 RUN apk del .tmp
 
-RUN mkdir /devops
-COPY ./devops /devops
-WORKDIR /devops
+RUN mkdir /app
+COPY ./devops /app
+WORKDIR /app
 COPY ./scripts /scripts
 
 RUN chmod +x /scripts/*
@@ -21,5 +21,4 @@ RUN adduser -D user
 RUN chown -R user:user /vol
 RUN chmod -R 755 /vol/web
 USER user
-
 CMD ["entrypoint.sh"]
