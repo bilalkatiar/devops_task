@@ -5,6 +5,9 @@ from .models import Snippet
 
 @admin.register(Snippet)
 class SnippetAdmin(admin.ModelAdmin):
+    """
+    This is Django Admin for Snippets
+    """
     list_display = ('id', 'title', 'owner')
 
     def has_change_permission(self, request, obj=None):

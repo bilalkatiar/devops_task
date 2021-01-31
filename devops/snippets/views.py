@@ -8,14 +8,20 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework.reverse import reverse
 
-from snippets.models import Snippet
-from snippets.serializers import SnippetSerializer, UserCreateSerializer
-from snippets.serializers import UserSerializer
-from snippets.permissions import IsOwnerOrReadOnly, IsSelfOrReadOnly
+from .models import Snippet
+from .serializers import SnippetSerializer, UserCreateSerializer
+from .serializers import UserSerializer
+from .permissions import IsOwnerOrReadOnly, IsSelfOrReadOnly
 
 
 @api_view(['GET'])
 def api_root(request, format=None):
+    """
+    This API is to display all the APIs in default view of DRF
+    :param request:
+    :param format:
+    :return:
+    """
     return Response({
         'users': reverse('user-list', request=request, format=format),
         'snippets': reverse('snippet-list', request=request, format=format)
