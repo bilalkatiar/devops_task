@@ -18,6 +18,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install pylint
         pip install -r devops/requirements.txt
+        $PWD
     - name: Analysing the code with pylint
       run: |
-        cd devops && pylint `ls -R|grep .py$|xargs`
+        pylint * --ignore=db.sqlite3
